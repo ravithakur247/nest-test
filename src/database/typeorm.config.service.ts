@@ -17,12 +17,12 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       synchronize: this.configService.get('database.synchronize'),
       password: this.configService.get<string>('database.password'),
       dropSchema: false,
-      logging: this.configService.get('app.nodeEnv') === 'local',
-      // entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-      entities: [
+      logging: this.configService.get('app.nodeEnv') === 'development',
+      entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+      // entities: [
        
 
-      ],
+      // ],
       migrations: [__dirname + '/migrations/**/*.entity{.ts,.js}'],
       extra: {
         max: this.configService.get('database.maxConnections'),
